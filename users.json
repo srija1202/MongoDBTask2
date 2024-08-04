@@ -1,0 +1,13 @@
+[
+    { "_id": "user1", "name": "Alice", "email": "alice@example.com", "codekata_solved": 100, "mentee_count": 10 },
+    { "_id": "user2", "name": "Bob", "email": "bob@example.com", "codekata_solved": 150, "mentee_count": 20 },
+    { "_id": "user3", "name": "Charlie", "email": "charlie@example.com", "codekata_solved": 200, "mentee_count": 5 },
+    { "_id": "user4", "name": "David", "email": "david@example.com", "codekata_solved": 80, "mentee_count": 16 },
+    { "_id": "user5", "name": "Eve", "email": "eve@example.com", "codekata_solved": 120, "mentee_count": 14 },
+    { "_id": "user6", "name": "Frank", "email": "frank@example.com", "codekata_solved": 60, "mentee_count": 8 },
+    { "_id": "user7", "name": "Grace", "email": "grace@example.com", "codekata_solved": 140, "mentee_count": 12 },
+    { "_id": "user8", "name": "Hannah", "email": "hannah@example.com", "codekata_solved": 130, "mentee_count": 18 },
+    { "_id": "user9", "name": "Ivy", "email": "ivy@example.com", "codekata_solved": 90, "mentee_count": 17 },
+    { "_id": "user10", "name": "Jack", "email": "jack@example.com", "codekata_solved": 110, "mentee_count": 15 }
+  ]
+  

@@ -1,0 +1,13 @@
+[
+    { "_id": "cd1", "company_name": "Google", "date": "2020-10-20T00:00:00Z", "appeared_students": ["user1", "user2"] },
+    { "_id": "cd2", "company_name": "Amazon", "date": "2020-10-22T00:00:00Z", "appeared_students": ["user3", "user4"] },
+    { "_id": "cd3", "company_name": "Microsoft", "date": "2020-10-24T00:00:00Z", "appeared_students": ["user5", "user6"] },
+    { "_id": "cd4", "company_name": "Facebook", "date": "2020-10-26T00:00:00Z", "appeared_students": ["user7", "user8"] },
+    { "_id": "cd5", "company_name": "Apple", "date": "2020-10-28T00:00:00Z", "appeared_students": ["user9", "user10"] },
+    { "_id": "cd6", "company_name": "Netflix", "date": "2020-11-01T00:00:00Z", "appeared_students": ["user1", "user3"] },
+    { "_id": "cd7", "company_name": "Uber", "date": "2020-11-03T00:00:00Z", "appeared_students": ["user2", "user4"] },
+    { "_id": "cd8", "company_name": "LinkedIn", "date": "2020-11-05T00:00:00Z", "appeared_students": ["user5", "user7"] },
+    { "_id": "cd9", "company_name": "Twitter", "date": "2020-11-07T00:00:00Z", "appeared_students": ["user6", "user8"] },
+    { "_id": "cd10", "company_name": "Spotify", "date": "2020-11-09T00:00:00Z", "appeared_students": ["user9", "user10"] }
+  ]
+  

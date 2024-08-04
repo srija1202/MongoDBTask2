@@ -1,0 +1,13 @@
+[
+    { "_id": "ck1", "user_id": "user1", "problems_solved": 20, "date": "2020-10-01T00:00:00Z" },
+    { "_id": "ck2", "user_id": "user2", "problems_solved": 25, "date": "2020-10-05T00:00:00Z" },
+    { "_id": "ck3", "user_id": "user3", "problems_solved": 30, "date": "2020-10-10T00:00:00Z" },
+    { "_id": "ck4", "user_id": "user4", "problems_solved": 10, "date": "2020-10-15T00:00:00Z" },
+    { "_id": "ck5", "user_id": "user5", "problems_solved": 15, "date": "2020-10-20T00:00:00Z" },
+    { "_id": "ck6", "user_id": "user6", "problems_solved": 5, "date": "2020-10-25T00:00:00Z" },
+    { "_id": "ck7", "user_id": "user7", "problems_solved": 18, "date": "2020-10-30T00:00:00Z" },
+    { "_id": "ck8", "user_id": "user8", "problems_solved": 22, "date": "2020-11-01T00:00:00Z" },
+    { "_id": "ck9", "user_id": "user9", "problems_solved": 27, "date": "2020-11-05T00:00:00Z" },
+    { "_id": "ck10", "user_id": "user10", "problems_solved": 12, "date": "2020-11-10T00:00:00Z" }
+  ]
+  

@@ -1,0 +1,13 @@
+[
+    { "_id": "at1", "user_id": "user1", "date": "2020-10-01T00:00:00Z", "status": "present" },
+    { "_id": "at2", "user_id": "user2", "date": "2020-10-02T00:00:00Z", "status": "absent" },
+    { "_id": "at3", "user_id": "user3", "date": "2020-10-03T00:00:00Z", "status": "present" },
+    { "_id": "at4", "user_id": "user4", "date": "2020-10-04T00:00:00Z", "status": "absent" },
+    { "_id": "at5", "user_id": "user5", "date": "2020-10-05T00:00:00Z", "status": "present" },
+    { "_id": "at6", "user_id": "user6", "date": "2020-10-06T00:00:00Z", "status": "present" },
+    { "_id": "at7", "user_id": "user7", "date": "2020-10-07T00:00:00Z", "status": "absent" },
+    { "_id": "at8", "user_id": "user8", "date": "2020-10-08T00:00:00Z", "status": "present" },
+    { "_id": "at9", "user_id": "user9", "date": "2020-10-09T00:00:00Z", "status": "absent" },
+    { "_id": "at10", "user_id": "user10", "date": "2020-10-10T00:00:00Z", "status": "present" }
+  ]
+  

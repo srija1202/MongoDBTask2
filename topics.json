@@ -1,0 +1,13 @@
+[
+    { "_id": "tp1", "name": "HTML Basics", "date": "2020-10-01T00:00:00Z" },
+    { "_id": "tp2", "name": "CSS Basics", "date": "2020-10-05T00:00:00Z" },
+    { "_id": "tp3", "name": "JavaScript Basics", "date": "2020-10-10T00:00:00Z" },
+    { "_id": "tp4", "name": "DOM Manipulation", "date": "2020-10-15T00:00:00Z" },
+    { "_id": "tp5", "name": "AJAX", "date": "2020-10-20T00:00:00Z" },
+    { "_id": "tp6", "name": "React Basics", "date": "2020-10-25T00:00:00Z" },
+    { "_id": "tp7", "name": "Redux", "date": "2020-10-30T00:00:00Z" },
+    { "_id": "tp8", "name": "Node.js Basics", "date": "2020-11-01T00:00:00Z" },
+    { "_id": "tp9", "name": "Express.js", "date": "2020-11-05T00:00:00Z" },
+    { "_id": "tp10", "name": "MongoDB", "date": "2020-11-10T00:00:00Z" }
+  ]
+  
