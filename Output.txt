@@ -1,0 +1,471 @@
+1) Find all the topics and tasks which are thought in the month of October
+
+Query - db.topics.aggregate([ { $match: { date: { $gte: ISODate("2020-10-01T00:00:00.000Z"), $lt: ISODate("2020-11-01T00:00:00.000Z") } } }, { $project: { type: { $literal: "topic" }, _id: 1, name: 1, date: 1 } }, { $unionWith: { coll: "tasks", pipeline: [ { $match: { due_date: { $gte: ISODate("2020-10-01T00:00:00.000Z"), $lt: ISODate("2020-11-01T00:00:00.000Z") } } }, 
+{ $project: { type: { $literal: "task" }, _id: 1, name: 1, date: "$due_date" } }] } }, { $sort: { date: 1 } }] ).toArray();
+
+Output - 
+[
+  {
+    _id: ObjectId("64f003524f1f72c9d66e8a45"),
+    date: ISODate("2020-10-01T00:00:00.000Z"),
+    type: 'topic'
+  },
+  {
+    _id: ObjectId("64f003524f1f72c9d66e8a47"),
+    date: ISODate("2020-10-03T00:00:00.000Z"),
+    type: 'topic'
+  },
+  {
+    _id: ObjectId("64f003524f1f72c9d66e8a49"),
+    date: ISODate("2020-10-05T00:00:00.000Z"),
+    type: 'topic'
+  },
+  {
+    _id: ObjectId("64f003524f1f72c9d66e8a4b"),
+    date: ISODate("2020-10-07T00:00:00.000Z"),
+    type: 'topic'
+  },
+  {
+    _id: ObjectId("64f003524f1f72c9d66e8a4d"),
+    date: ISODate("2020-10-09T00:00:00.000Z"),
+    type: 'topic'
+  },
+  {
+    _id: ObjectId("64f0042b4f1f72c9d66e8a1f"),
+    type: 'task',
+    date: ISODate("2020-10-16T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("64f0042b4f1f72c9d66e8a23"),
+    type: 'task',
+    date: ISODate("2020-10-18T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("64f0042b4f1f72c9d66e8a28"),
+    type: 'task',
+    date: ISODate("2020-10-20T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("64f0042b4f1f72c9d66e8a2c"),
+    type: 'task',
+    date: ISODate("2020-10-22T00:00:00.000Z")
+  },
+  {
+    _id: ObjectId("64f0042b4f1f72c9d66e8a30"),
+    type: 'task',
+    date: ISODate("2020-10-24T00:00:00.000Z")
+  }
+]
+
+2) Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+Query - Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+Output - 
+[
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a65"),
+    company_name: 'Innovate Inc.',
+    drive_date: ISODate("2020-10-17T00:00:00.000Z"),
+    location: 'San Francisco',
+    role: 'Data Scientist',
+    attendees: [
+      ObjectId("64f0031f4f1f72c9d66e8a20"),
+      ObjectId("64f0031f4f1f72c9d66e8a22")
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a67"),
+    company_name: 'Global Solutions',
+    drive_date: ISODate("2020-10-19T00:00:00.000Z"),
+    location: 'Chicago',
+    role: 'Backend Developer',
+    attendees: [
+      ObjectId("64f0031f4f1f72c9d66e8a29"),
+      ObjectId("64f0031f4f1f72c9d66e8a2b")
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a69"),
+    company_name: 'CyberWorks',
+    drive_date: ISODate("2020-10-21T00:00:00.000Z"),
+    location: 'Los Angeles',
+    role: 'Cybersecurity Analyst',
+    attendees: [
+      ObjectId("64f0031f4f1f72c9d66e8a1b"),
+      ObjectId("64f0031f4f1f72c9d66e8a22")
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6b"),
+    company_name: 'Quantum Tech',
+    drive_date: ISODate("2020-10-23T00:00:00.000Z"),
+    location: 'Denver',
+    role: 'Machine Learning Engineer',
+    attendees: [
+      ObjectId("64f0031f4f1f72c9d66e8a29"),
+      ObjectId("64f0031f4f1f72c9d66e8a2b")
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6d"),
+    company_name: 'CodeMasters',
+    drive_date: ISODate("2020-10-25T00:00:00.000Z"),
+    location: 'Philadelphia',
+    role: 'Software Architect',
+    attendees: [
+      ObjectId("64f0031f4f1f72c9d66e8a1e"),
+      ObjectId("64f0031f4f1f72c9d66e8a20")
+    ]
+  }
+]
+
+3) Find all the company drives and students who are appeared for the placement.
+
+Query -  db.company_drives.aggregate([ { $lookup: { from: "users", localField: "attendees", foreignField: "_id", as: "attendee_details" } }, { $project: { _id: 1, company_name: 1, drive_date: 1, location: 1, role: 1, 
+attendee_details: { _id: 1, name: 1, email: 1, phone: 1, batch: 1 } } }] ).toArray();
+
+Output - [
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a64"),
+    company_name: 'TechCorp',
+    drive_date: ISODate("2020-10-14T00:00:00.000Z"),
+    location: 'New York',
+    role: 'Software Engineer',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a1b"),
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        phone: '1234567890',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a1e"),
+        name: 'Jane Smith',
+        email: 'janesmith@example.com',
+        phone: '0987654321',
+        batch: 'Batch 2'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a65"),
+    company_name: 'Innovate Inc.',
+    drive_date: ISODate("2020-10-17T00:00:00.000Z"),
+    location: 'San Francisco',
+    role: 'Data Scientist',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a20"),
+        name: 'Robert Johnson',
+        email: 'robertj@example.com',
+        phone: '1122334455',
+        batch: 'Batch 3'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a22"),
+        name: 'Emily Davis',
+        email: 'emilyd@example.com',
+        phone: '2233445566',
+        batch: 'Batch 1'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a66"),
+    company_name: 'FutureTech',
+    drive_date: ISODate("2020-11-18T00:00:00.000Z"),
+    location: 'Seattle',
+    role: 'Frontend Developer',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a25"),
+        name: 'Michael Brown',
+        email: 'michaelb@example.com',
+        phone: '3344556677',
+        batch: 'Batch 2'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a27"),
+        name: 'Sarah Wilson',
+        email: 'sarahw@example.com',
+        phone: '4455667788',
+        batch: 'Batch 3'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a67"),
+    company_name: 'Global Solutions',
+    drive_date: ISODate("2020-10-19T00:00:00.000Z"),
+    location: 'Chicago',
+    role: 'Backend Developer',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a29"),
+        name: 'David Lee',
+        email: 'davidl@example.com',
+        phone: '5566778899',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a2b"),
+        name: 'Laura Martinez',
+        email: 'lauram@example.com',
+        phone: '6677889900',
+        batch: 'Batch 2'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a68"),
+    company_name: 'NextGen Systems',
+    drive_date: ISODate("2020-10-12T00:00:00.000Z"),
+    location: 'Austin',
+    role: 'Systems Analyst',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a30"),
+        name: 'Olivia Thomas',
+        email: 'oliviat@example.com',
+        phone: '8899001122',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a2e"),
+        name: 'James Anderson',
+        email: 'jamesa@example.com',
+        phone: '7788990011',
+        batch: 'Batch 3'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a69"),
+    company_name: 'CyberWorks',
+    drive_date: ISODate("2020-10-21T00:00:00.000Z"),
+    location: 'Los Angeles',
+    role: 'Cybersecurity Analyst',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a22"),
+        name: 'Emily Davis',
+        email: 'emilyd@example.com',
+        phone: '2233445566',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a1b"),
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        phone: '1234567890',
+        batch: 'Batch 1'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6a"),
+    company_name: 'DataHive',
+    drive_date: ISODate("2020-11-01T00:00:00.000Z"),
+    location: 'Boston',
+    role: 'Data Engineer',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a30"),
+        name: 'Olivia Thomas',
+        email: 'oliviat@example.com',
+        phone: '8899001122',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a27"),
+        name: 'Sarah Wilson',
+        email: 'sarahw@example.com',
+        phone: '4455667788',
+        batch: 'Batch 3'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6b"),
+    company_name: 'Quantum Tech',
+    drive_date: ISODate("2020-10-23T00:00:00.000Z"),
+    location: 'Denver',
+    role: 'Machine Learning Engineer',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a29"),
+        name: 'David Lee',
+        email: 'davidl@example.com',
+        phone: '5566778899',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a2b"),
+        name: 'Laura Martinez',
+        email: 'lauram@example.com',
+        phone: '6677889900',
+        batch: 'Batch 2'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6c"),
+    company_name: 'TechGiant',
+    drive_date: ISODate("2020-11-24T00:00:00.000Z"),
+    location: 'Houston',
+    role: 'Product Manager',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a30"),
+        name: 'Olivia Thomas',
+        email: 'oliviat@example.com',
+        phone: '8899001122',
+        batch: 'Batch 1'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a2e"),
+        name: 'James Anderson',
+        email: 'jamesa@example.com',
+        phone: '7788990011',
+        batch: 'Batch 3'
+      }
+    ]
+  },
+  {
+    _id: ObjectId("64f0045d4f1f72c9d66e8a6d"),
+    company_name: 'CodeMasters',
+    drive_date: ISODate("2020-10-25T00:00:00.000Z"),
+    location: 'Philadelphia',
+    role: 'Software Architect',
+    attendee_details: [
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a1e"),
+        name: 'Jane Smith',
+        email: 'janesmith@example.com',
+        phone: '0987654321',
+        batch: 'Batch 2'
+      },
+      {
+        _id: ObjectId("64f0031f4f1f72c9d66e8a20"),
+        name: 'Robert Johnson',
+        email: 'robertj@example.com',
+        phone: '1122334455',
+        batch: 'Batch 3'
+      }
+    ]
+  }
+]
+
+4) Find the number of problems solved by the user in codekata
+
+Query - db.codekata.aggregate([ { $group: { _id: "$user_id", total_problems_solved: { $sum: "$problems_solved" } } }, { $lookup: { from: "users", localField: "_id", foreignField: "_id", as: "user_details" } }, { $unwind: "$user_details" }, 
+{ $project: { _id: 1, user_name: "$user_details.name", total_problems_solved: 1 } }] ).toArray();
+
+Output - [
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a30"),
+    total_problems_solved: 170,
+    user_name: 'Olivia Thomas'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a25"),
+    total_problems_solved: 140,
+    user_name: 'Michael Brown'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a1e"),
+    total_problems_solved: 120,
+    user_name: 'Jane Smith'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a29"),
+    total_problems_solved: 170,
+    user_name: 'David Lee'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a27"),
+    total_problems_solved: 160,
+    user_name: 'Sarah Wilson'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a1b"),
+    total_problems_solved: 150,
+    user_name: 'John Doe'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a20"),
+    total_problems_solved: 200,
+    user_name: 'Robert Johnson'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a2b"),
+    total_problems_solved: 110,
+    user_name: 'Laura Martinez'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a22"),
+    total_problems_solved: 180,
+    user_name: 'Emily Davis'
+  },
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a2e"),
+    total_problems_solved: 190,
+    user_name: 'James Anderson'
+  }
+]
+
+5) Find all the mentors with who has the mentee's count more than 15
+
+Query - db.mentors.aggregate([ { $match: { mentee_count: { $gt: 15 } } }, { $project: { _id: 1, name: 1 } }] ).toArray();
+
+Output - 
+[
+  {
+    _id: ObjectId("64f003354f1f72c9d66e8a1d"),
+    name: 'Dr. Alice Johnson'
+  },
+  { _id: ObjectId("64f003354f1f72c9d66e8a24"), name: 'Mr. Bob Smith' },
+  {
+    _id: ObjectId("64f003354f1f72c9d66e8a3d"),
+    name: 'Dr. David Brown'
+  },
+  { _id: ObjectId("64f003354f1f72c9d66e8a61"), name: 'Dr. Grace Lee' },
+  {
+    _id: ObjectId("64f003354f1f72c9d66e8a71"),
+    name: 'Mr. Henry Walker'
+  },
+  {
+    _id: ObjectId("64f003354f1f72c9d66e8a82"),
+    name: 'Ms. Irene Scott'
+  },
+  {
+    _id: ObjectId("64f003354f1f72c9d66e8a91"),
+    name: 'Dr. Jack Harris'
+  }
+]
+
+6) Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020
+
+Quantum - db.users.aggregate([ { $lookup: { from: "attendance", localField: "_id", foreignField: "user_id", as: "attendance" } }, { $unwind: "$attendance" }, { $match: { "attendance.date": { $gte: ISODate("2020-10-15T00:00:00.000Z"), $lte: ISODate("2020-10-31T23:59:59.999Z") }, "attendance.status": "Absent" } }, { $lookup: { from: "tasks", localField: "_id", foreignField: "user_id", as: "tasks" } }, { $unwind: "$tasks" }, { $match: { "tasks.due_date": { $gte: ISODate("2020-10-15T00:00:00.000Z"), $lte: ISODate("2020-10-31T23:59:59.999Z") }, "tasks.status": "Incomplete" } }, { $group: { _id: "$_id", name: { $first: "$name" }, email: { $first: "$email" }, phone: { $first: "$phone" }, batch: { $first: "$batch" },\
+ tasks: { $push: { task_name: "$tasks.task_name", due_date: "$tasks.due_date", status: "$tasks.status" } } } }] ).toArray();
+
+ Output - 
+ [
+  {
+    _id: ObjectId("64f0031f4f1f72c9d66e8a1e"),
+    name: 'Jane Smith',
+    email: 'janesmith@example.com',
+    phone: '0987654321',
+    batch: 'Batch 2',
+    tasks: [
+      {
+        task_name: 'Create a To-Do App',
+        due_date: ISODate("2020-10-16T00:00:00.000Z"),
+        status: 'Incomplete'
+      }
+    ]
+  }
+]
+

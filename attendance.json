@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a3b"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a1b"
+  },
+  "date": {
+    "$date": "2020-10-15T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a3c"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a1e"
+  },
+  "date": {
+    "$date": "2020-10-15T00:00:00.000Z"
+  },
+  "status": "Absent"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a3d"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a20"
+  },
+  "date": {
+    "$date": "2020-10-16T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a3e"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a22"
+  },
+  "date": {
+    "$date": "2020-10-16T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a3f"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a25"
+  },
+  "date": {
+    "$date": "2020-10-17T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a40"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a27"
+  },
+  "date": {
+    "$date": "2020-10-17T00:00:00.000Z"
+  },
+  "status": "Absent"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a41"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a29"
+  },
+  "date": {
+    "$date": "2020-10-18T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a42"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a2b"
+  },
+  "date": {
+    "$date": "2020-10-18T00:00:00.000Z"
+  },
+  "status": "Absent"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a43"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a2e"
+  },
+  "date": {
+    "$date": "2020-10-19T00:00:00.000Z"
+  },
+  "status": "Present"
+},
+{
+  "_id": {
+    "$oid": "64f003424f1f72c9d66e8a44"
+  },
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a30"
+  },
+  "date": {
+    "$date": "2020-10-19T00:00:00.000Z"
+  },
+  "status": "Absent"
+}]

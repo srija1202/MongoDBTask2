@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a1c"
+  },
+  "task_name": "Build a Personal Website",
+  "due_date": {
+    "$date": "2020-11-15T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a1b"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a1f"
+  },
+  "task_name": "Create a To-Do App",
+  "due_date": {
+    "$date": "2020-10-16T00:00:00.000Z"
+  },
+  "status": "Incomplete",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a1e"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a21"
+  },
+  "task_name": "Design a Database Schema",
+  "due_date": {
+    "$date": "2020-08-14T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a20"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a23"
+  },
+  "task_name": "Implement Authentication",
+  "due_date": {
+    "$date": "2020-10-18T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a22"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a26"
+  },
+  "task_name": "Build a RESTful API",
+  "due_date": {
+    "$date": "2020-11-11T00:00:00.000Z"
+  },
+  "status": "Incomplete",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a25"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a28"
+  },
+  "task_name": "Create a Blog Platform",
+  "due_date": {
+    "$date": "2020-10-20T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a27"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a2a"
+  },
+  "task_name": "Set Up Continuous Integration",
+  "due_date": {
+    "$date": "2020-09-21T00:00:00.000Z"
+  },
+  "status": "Incomplete",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a29"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a2c"
+  },
+  "task_name": "Optimize Application Performance",
+  "due_date": {
+    "$date": "2020-10-22T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a2b"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a2e"
+  },
+  "task_name": "Develop a Mobile App",
+  "due_date": {
+    "$date": "2020-12-23T00:00:00.000Z"
+  },
+  "status": "Incomplete",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a2e"
+  }
+},
+{
+  "_id": {
+    "$oid": "64f0042b4f1f72c9d66e8a30"
+  },
+  "task_name": "Integrate Payment Gateway",
+  "due_date": {
+    "$date": "2020-10-24T00:00:00.000Z"
+  },
+  "status": "Completed",
+  "user_id": {
+    "$oid": "64f0031f4f1f72c9d66e8a30"
+  }
+}]
